@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle PPY</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="modal">
+      <h1 class="modal_title"></h1>
+      <p class="modal_content">¡Quieres jugar de nuevo?</p>
+      <div class="div_buttons">
+        <button class="modal_play">JUGAR DE NUEVO</button>
+        <button class="modal_cancel">CANCELAR</button>
+      </div>
+    </div>
+
+    <h1 class="title">Wordle PPY</h1>
+    <input class="input_attempt" name="input_attempt" type="text">
+    <span class="error"></span>
+    <button class="button_attempt">
+      <span class="circle1"></span>
+      <span class="circle2"></span>
+      <span class="circle3"></span>
+      <span class="circle4"></span>
+      <span class="circle5"></span>
+      <span class="text">Intentar</span>
+    </button>
+    <div class="results"></div>
+  </div>
+</body>
+
+</html>
