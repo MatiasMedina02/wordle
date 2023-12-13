@@ -25,6 +25,7 @@ body {
   height: 80vh;
   padding: 20px;
   background-color: #aad576;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,6 +122,22 @@ body {
   transition: 1.5s ease;
 }
 
+.button_attempt:disabled {
+  opacity: 0.6;
+}
+
+.button_attempt:disabled span:not(:nth-child(6)) {
+  background-color: #A0A0A0;
+}
+
+.button_attempt:disabled:hover {
+  color: #fff;
+}
+
+.button_attempt:disabled span:not(:nth-child(6)):hover {
+  transform: none;
+}
+
 .results {
   width: 80%;
   display: grid;
@@ -140,6 +157,17 @@ body {
   text-align: center;
   font-size: 28px;
   font-weight: bold;
+  border-radius: 4px;
+}
+
+.button_music {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 14px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /* Modal */
