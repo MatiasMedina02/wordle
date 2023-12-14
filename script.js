@@ -2,6 +2,7 @@ let attemps = 6;
 let randomWord = "";
 let words = ["APPLE", "BEACH", "CLOUD", "DANCE", "EAGLE", "FLAME", "GRAND", "HUMOR", "IMAGE", "JUMBO"];
 let isSoundEnabled = false;
+const URL = "https://random-word-api.herokuapp.com/word?length=5&lang=es";
 
 const input = document.querySelector(".input_attempt");
 const error = document.querySelector(".error");
@@ -41,11 +42,24 @@ modalCancel.addEventListener("click", () => {
 buttonMusic.addEventListener("click", toggleSound);
 
 // Functions
-function getRandomWord() {
-  randomWord = words[Math.floor(Math.random() * words.length)];
+async function getRandomWord() {
+  await fetch(URL)
+  .then(response => {
+    if (response.ok) {
+      response.json()
+        .then(data => randomWord = data[0].toUpperCase());
+    } else {
+      console.log("Respuesta de red OK pero respuesta HTTP no OK");
+    }
+  })
+  .catch(error => {
+    console.log("Hubo un problema con la petición Fetch:" + error.message);
+  });
+  // randomWord = words[Math.floor(Math.random() * words.length)];
 }
 
 function newAttempt() {
+  // console.log(randomWord);
   const valueAttempt = input.value.toUpperCase();
 
   if (valueAttempt.length < 5) {
